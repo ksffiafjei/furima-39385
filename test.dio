@@ -116,7 +116,7 @@
                         <mxPoint x="340" y="85" as="targetPoint"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="72" value="Items" style="whiteSpace=wrap;html=1;align=center;labelBackgroundColor=#000000;fontSize=14;fontColor=#FFFFFF;" parent="27" vertex="1">
+                <mxCell id="72" value="Item" style="whiteSpace=wrap;html=1;align=center;labelBackgroundColor=#000000;fontSize=14;fontColor=#FFFFFF;" parent="27" vertex="1">
                     <mxGeometry y="66" width="160" height="40" as="geometry"/>
                 </mxCell>
                 <mxCell id="62" value="address" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;align=center;fontSize=14;labelBackgroundColor=#000000;fontColor=#FFFFFF;" parent="1" vertex="1">
