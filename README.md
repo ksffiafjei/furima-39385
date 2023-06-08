@@ -86,7 +86,7 @@ Things you may want to cover:
 | streetaddress               | string       | null: false                    |
 | buildingname                | string         |
 | phonenumber                 | string       | null: false                    |
-| purchase_id                 | references  | null: false, foreign_key: true |
+| purchase                    | references  | null: false, foreign_key: true |
 
 ### Association
 
