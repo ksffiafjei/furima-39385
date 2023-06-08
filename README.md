@@ -65,6 +65,7 @@ Things you may want to cover:
 
 
 | Column                          | Type        | Options                        |
+| ------------------              | ------      | -----------                    |
 | user                            | references  | null: false, foreign_key: true |
 | item                           | references  | null: false, foreign_key: true |
 
@@ -77,10 +78,10 @@ Things you may want to cover:
 
 
 ## address テーブル
-
+| Column                            | Type        | Options                       |
+| ------------------                | ------      | -----------                   |
 | postalcode                  | string       | null: false                    |
-| prefecture_id               | integer      | null: false,                   |
-|prefecture                   |references    | null: false,                   |
+| prefecture_id               | integer      | null: false                   |
 | city                        | string       | null: false                    |
 | streetaddress               | string       | null: false                    |
 | buildingname                | string         |
