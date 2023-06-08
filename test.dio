@@ -110,12 +110,6 @@
                 <mxCell id="71" value="&lt;div style=&quot;color: rgb(204, 204, 204); background-color: rgb(31, 31, 31); font-family: Menlo, Monaco, &amp;quot;Courier New&amp;quot;, monospace; font-size: 12px; line-height: 18px;&quot;&gt;user&lt;/div&gt;" style="whiteSpace=wrap;html=1;align=center;labelBackgroundColor=#000000;fontSize=14;fontColor=#FFFFFF;" parent="27" vertex="1">
                     <mxGeometry y="26" width="160" height="40" as="geometry"/>
                 </mxCell>
-                <mxCell id="73" value="" style="endArrow=none;html=1;rounded=0;fontSize=13;fontColor=#FFFFFF;" parent="27" target="72" edge="1">
-                    <mxGeometry relative="1" as="geometry">
-                        <mxPoint x="180" y="85" as="sourcePoint"/>
-                        <mxPoint x="340" y="85" as="targetPoint"/>
-                    </mxGeometry>
-                </mxCell>
                 <mxCell id="72" value="&lt;div style=&quot;color: rgb(204, 204, 204); background-color: rgb(31, 31, 31); font-family: Menlo, Monaco, &amp;quot;Courier New&amp;quot;, monospace; font-size: 12px; line-height: 18px;&quot;&gt;item &lt;/div&gt;" style="whiteSpace=wrap;html=1;align=center;labelBackgroundColor=#000000;fontSize=14;fontColor=#FFFFFF;" parent="27" vertex="1">
                     <mxGeometry y="66" width="160" height="40" as="geometry"/>
                 </mxCell>
