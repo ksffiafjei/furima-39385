@@ -1,6 +1,6 @@
 <mxfile host="65bd71144e">
     <diagram id="EfDrzy22AmJzcq870eCy" name="ページ1">
-        <mxGraphModel dx="556" dy="568" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="0" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+        <mxGraphModel dx="741" dy="757" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="0" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
@@ -75,7 +75,7 @@
                 <mxCell id="21" value="&lt;div style=&quot;color: rgb(204, 204, 204); background-color: rgb(31, 31, 31); font-family: Menlo, Monaco, &amp;quot;Courier New&amp;quot;, monospace; line-height: 18px;&quot;&gt;prefecture_id&lt;/div&gt;" style="whiteSpace=wrap;html=1;align=left;labelBackgroundColor=#0d0c0c;fontSize=12;fontColor=#f6f4f4;" parent="11" vertex="1">
                     <mxGeometry y="200" width="220" height="40" as="geometry"/>
                 </mxCell>
-                <mxCell id="20" value="&lt;div style=&quot;color: rgb(204, 204, 204); background-color: rgb(31, 31, 31); font-family: Menlo, Monaco, &amp;quot;Courier New&amp;quot;, monospace; line-height: 18px;&quot;&gt;deliverydays_id&lt;/div&gt;" style="whiteSpace=wrap;html=1;align=left;labelBackgroundColor=#0D0C0C;fontSize=12;fontColor=#F3F2F2;" parent="11" vertex="1">
+                <mxCell id="20" value="&lt;div style=&quot;color: rgb(204, 204, 204); background-color: rgb(31, 31, 31); font-family: Menlo, Monaco, &amp;quot;Courier New&amp;quot;, monospace; line-height: 18px;&quot;&gt;deliveryday_id&lt;/div&gt;" style="whiteSpace=wrap;html=1;align=left;labelBackgroundColor=#0D0C0C;fontSize=12;fontColor=#F3F2F2;" parent="11" vertex="1">
                     <mxGeometry y="240" width="220" height="40" as="geometry"/>
                 </mxCell>
                 <mxCell id="19" value="&lt;div style=&quot;color: rgb(204, 204, 204); background-color: rgb(31, 31, 31); font-family: Menlo, Monaco, &amp;quot;Courier New&amp;quot;, monospace; font-size: 12px; line-height: 18px;&quot;&gt;price&lt;/div&gt;" style="whiteSpace=wrap;html=1;align=left;labelBackgroundColor=#0d0c0c;fontSize=13;fontColor=#f3f2f2;" parent="11" vertex="1">
@@ -113,7 +113,7 @@
                 <mxCell id="72" value="&lt;div style=&quot;color: rgb(204, 204, 204); background-color: rgb(31, 31, 31); font-family: Menlo, Monaco, &amp;quot;Courier New&amp;quot;, monospace; font-size: 12px; line-height: 18px;&quot;&gt;item &lt;/div&gt;" style="whiteSpace=wrap;html=1;align=center;labelBackgroundColor=#000000;fontSize=14;fontColor=#FFFFFF;" parent="27" vertex="1">
                     <mxGeometry y="66" width="160" height="40" as="geometry"/>
                 </mxCell>
-                <mxCell id="62" value="address" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;align=center;fontSize=14;labelBackgroundColor=#000000;fontColor=#FFFFFF;" parent="1" vertex="1">
+                <mxCell id="62" value="addresses" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;align=center;fontSize=14;labelBackgroundColor=#000000;fontColor=#FFFFFF;" parent="1" vertex="1">
                     <mxGeometry x="180" y="190" width="160" height="296" as="geometry"/>
                 </mxCell>
                 <mxCell id="42" value="&lt;div style=&quot;color: rgb(204, 204, 204); background-color: rgb(31, 31, 31); font-family: Menlo, Monaco, &amp;quot;Courier New&amp;quot;, monospace; font-size: 12px; line-height: 18px;&quot;&gt;city&lt;/div&gt;" style="whiteSpace=wrap;html=1;align=left;labelBackgroundColor=#000000;fontSize=13;fontColor=#FFFFFF;" parent="62" vertex="1">

@@ -51,7 +51,7 @@ Things you may want to cover:
 | status_id                         | integer     | null: false                   |
 | shippingcostresponsibility_id     | integer     | null: false                   |
 | prefecture_id                     | integer     | null: false                   |
-| deliverydays_id                   | integer     | null: false                   |
+| deliveryday_id                   | integer     | null: false                   |
 | price                             | integer     | null: false                  |
 | user                              | references  | null: false, foreign_key: true|
 
@@ -77,7 +77,7 @@ Things you may want to cover:
 - belongs_to :item
 
 
-## address テーブル
+## addresses テーブル
 | Column                            | Type        | Options                       |
 | ------------------                | ------      | -----------                   |
 | postalcode                  | string       | null: false                    |
