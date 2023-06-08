@@ -23,6 +23,7 @@ Things you may want to cover:
 
 * ...
 
+
 ## users テーブル
 
 | Column             | Type   | Options                   |
