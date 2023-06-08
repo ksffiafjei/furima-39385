@@ -30,8 +30,8 @@ Things you may want to cover:
 | sei                 | string | null: false               |
 | mei                 | string | null: false               |
 | email              | string | null: false, unique: true |
-| sei(hurigana)           | string | null: false               |
-| mei(hurigana)           | string | null: false               |
+| sei_hurigana           | string | null: false               |
+| mei_hurigana           | string | null: false               |
 | encrypted_password | string | null: false               |
 | dateofbirth        | date   | null: false               |
 | nickname           | string | null: false               |
@@ -79,10 +79,11 @@ Things you may want to cover:
 ## address テーブル
 
 | postalcode                  | string       | null: false                    |
-| prefecture_id               |references    | null: false, foreign_key: true |
+| prefecture_id               | integer      | null: false,                   |
+|prefecture                   |references    | null: false,                   |
 | city                        | string       | null: false                    |
 | streetaddress               | string       | null: false                    |
-| buildingname                | string       |
+| buildingname                | string         |
 | phonenumber                 | string       | null: false                    |
 
 ### Association
