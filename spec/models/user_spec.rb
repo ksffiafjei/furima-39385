@@ -29,7 +29,6 @@ RSpec.describe User, type: :model do
         expect(new_user).not_to be_valid
       end
 
-
       it 'メールアドレスは、@を含んでいないこと' do
         @user.email = 'invalid_email'
         @user.valid?
@@ -56,55 +55,62 @@ RSpec.describe User, type: :model do
       end
 
       it '英字のみでは無効であること' do
-        user = FactoryBot.build(:user, password: 'password', password_confirmation: 'password')
-        user.valid?
-        expect(user.errors[:password]).to include('is invalid')
+        @user.password = 'password'
+        @user.password_confirmation = 'password'
+        @user.valid?
+        expect(@user.errors[:password]).to include('is invalid')
       end
 
       it '数字のみでは無効であること' do
-        user = FactoryBot.build(:user, password: '123456', password_confirmation: '123456')
-        user.valid?
-        expect(user.errors[:password]).to include('is invalid')
+        @user.password = '123456'
+        @user.password_confirmation = '123456'
+        @user.valid?
+        expect(@user.errors[:password]).to include('is invalid')
       end
   
       it '全角では無効であること' do
-        user = FactoryBot.build(:user, password: 'パスワード', password_confirmation: 'パスワード')
-        user.valid?
-        expect(user.errors[:password]).to include('is invalid')
+        @user.password = 'パスワード'
+        @user.password_confirmation = 'パスワード'
+        @user.valid?
+        expect(@user.errors[:password]).to include('is invalid')
       end
 
       it '姓名が空では無効であること' do
-        user = FactoryBot.build(:user, sei: '', mei: '')
-        user.valid?
-        expect(user.errors[:sei]).to include("can't be blank")
-        expect(user.errors[:mei]).to include("can't be blank")
+        @user.sei = ''
+        @user.mei = ''
+        @user.valid?
+        expect(@user.errors[:sei]).to include("can't be blank")
+        expect(@user.errors[:mei]).to include("can't be blank")
       end
   
       it '姓名が半角文字が含まれている場合は無効であること' do
-        user = FactoryBot.build(:user, sei: 'Suzuki', mei: 'Tarou')
-        user.valid?
-        expect(user.errors[:sei]).to include('is invalid')
-        expect(user.errors[:mei]).to include('is invalid')
+        @user.sei = 'Suzuki'
+        @user.mei = 'Tarou'
+        @user.valid?
+        expect(@user.errors[:sei]).to include('is invalid')
+        expect(@user.errors[:mei]).to include('is invalid')
       end
 
       it '姓名（ふりがな）が空では無効であること' do
-        user = FactoryBot.build(:user, sei_hurigana: '', mei_hurigana: '')
-        user.valid?
-        expect(user.errors[:sei_hurigana]).to include("can't be blank")
-        expect(user.errors[:mei_hurigana]).to include("can't be blank")
+        @user.sei_hurigana = ''
+        @user.mei_hurigana = ''
+        @user.valid?
+        expect(@user.errors[:sei_hurigana]).to include("can't be blank")
+        expect(@user.errors[:mei_hurigana]).to include("can't be blank")
       end
   
       it '姓名（ふりがな）がカタカナ以外の文字が含まれている場合は無効であること' do
-        user = FactoryBot.build(:user, sei_hurigana: 'すずき', mei_hurigana: 'たろう')
-        user.valid?
-        expect(user.errors[:sei_hurigana]).to include('is invalid')
-        expect(user.errors[:mei_hurigana]).to include('is invalid')
+        @user.sei_hurigana = 'すずき'
+        @user.mei_hurigana = 'たろう'
+        @user.valid?
+        expect(@user.errors[:sei_hurigana]).to include('is invalid')
+        expect(@user.errors[:mei_hurigana]).to include('is invalid')
       end
 
       it '生年月日が空では無効であること' do
-        user = FactoryBot.build(:user, dateofbirth: nil)
-        user.valid?
-        expect(user.errors[:dateofbirth]).to include("can't be blank")
+        @user.dateofbirth = nil
+        @user.valid?
+        expect(@user.errors[:dateofbirth]).to include("can't be blank")
       end
     end
   end
