@@ -75,35 +75,51 @@ RSpec.describe User, type: :model do
         expect(@user.errors[:password]).to include('is invalid')
       end
 
-      it '姓名が空では無効であること' do
+      it '姓が空では無効であること' do
         @user.sei = ''
-        @user.mei = ''
         @user.valid?
         expect(@user.errors[:sei]).to include("can't be blank")
+      end
+
+      it '名が空では無効であること' do
+        @user.mei = ''
+        @user.valid?
         expect(@user.errors[:mei]).to include("can't be blank")
       end
   
-      it '姓名が半角文字が含まれている場合は無効であること' do
+      it '姓が半角文字が含まれている場合は無効であること' do
         @user.sei = 'Suzuki'
-        @user.mei = 'Tarou'
         @user.valid?
         expect(@user.errors[:sei]).to include('is invalid')
+      end
+
+      it '姓名が半角文字が含まれている場合は無効であること' do
+        @user.mei = 'Tarou'
+        @user.valid?
         expect(@user.errors[:mei]).to include('is invalid')
       end
 
-      it '姓名（ふりがな）が空では無効であること' do
+      it '姓（ふりがな）が空では無効であること' do
         @user.sei_hurigana = ''
-        @user.mei_hurigana = ''
         @user.valid?
         expect(@user.errors[:sei_hurigana]).to include("can't be blank")
+      end
+  
+      it '名（ふりがな）が空では無効であること' do
+        @user.mei_hurigana = ''
+        @user.valid?
         expect(@user.errors[:mei_hurigana]).to include("can't be blank")
       end
   
-      it '姓名（ふりがな）がカタカナ以外の文字が含まれている場合は無効であること' do
+      it '姓（ふりがな）がカタカナ以外の文字が含まれている場合は無効であること' do
         @user.sei_hurigana = 'すずき'
-        @user.mei_hurigana = 'たろう'
         @user.valid?
         expect(@user.errors[:sei_hurigana]).to include('is invalid')
+      end
+
+      it '名（ふりがな）がカタカナ以外の文字が含まれている場合は無効であること' do
+        @user.mei_hurigana = 'たろう'
+        @user.valid?
         expect(@user.errors[:mei_hurigana]).to include('is invalid')
       end
 
