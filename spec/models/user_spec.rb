@@ -1,44 +1,59 @@
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
-  before do
-    @user = FactoryBot.build(:user)
-  end
+  describe 'validations' do
+    before do
+      @user = FactoryBot.build(:user)
+    end
 
-  it 'メールアドレスが必須であること' do
-    @user.email = nil
-    expect(@user).to_not be_valid
-    expect(@user.errors[:email]).to include("can't be blank")
-  end
+    context '正常系' do
+      it 'すべてが保存できたら良い' do
+        @user.password_confirmation = @user.password
+        expect(@user).to be_valid
+      end
+    end
+      
+    context '異常系' do
+      it 'メールアドレスが空白であること' do
+        @user.email = nil
+        @user.valid? 
+        expect(@user.errors[:email]).to include("can't be blank")
+      end
 
-  it 'メールアドレスが一意性であること' do
-    existing_user = FactoryBot.create(:user, email: 'test@example.com')
-    @user.email = existing_user.email
-    expect(@user).to_not be_valid
-    expect(@user.errors[:email]).to include('has already been taken')
-  end
+      it 'メールアドレスが一意性でない場合' do
+        email = Faker::Internet.unique.email
+        @user.email = email
+        @user.save
 
-  it 'メールアドレスは、@を含む必要があること' do
-    @user.email = 'invalid_email'
-    expect(@user).to_not be_valid
-    expect(@user.errors[:email]).to include('is invalid')
-  end
+        new_user = FactoryBot.build(:user, email: email)
+        expect(new_user).not_to be_valid
+      end
 
-  it 'パスワードが必須であること' do
-    @user.password = nil
-    expect(@user).to_not be_valid
-    expect(@user.errors[:password]).to include("can't be blank")
-  end
 
-  it 'パスワードは、6文字以上での入力が必須であること' do
-    @user.password = '12345'
-    expect(@user).to_not be_valid
-    expect(@user.errors[:password]).to include('is too short (minimum is 6 characters)')
-  end
+      it 'メールアドレスは、@を含んでいないこと' do
+        @user.email = 'invalid_email'
+        @user.valid?
+        expect(@user.errors[:email]).to include('is invalid')
+      end
 
-  it 'パスワードとパスワード（確認）は、値の一致が必須であること' do
-    @user.password_confirmation = 'different_password'
-    expect(@user).to_not be_valid
-    expect(@user.errors[:password_confirmation]).to include("doesn't match Password")
+      it 'パスワードが空白であること' do
+        @user.password = nil
+        @user.valid?
+        expect(@user.errors[:password]).to include("can't be blank")
+      end
+
+      it 'パスワードが6文字未満の場合に無効であること' do
+        @user.password = '12345'
+        @user.valid?
+        expect(@user.errors[:password]).to include('is too short (minimum is 6 characters)')
+      end
+
+      it 'パスワードとパスワード（確認）が一致しない場合にも無効であること' do
+        @user.password = 'password'
+        @user.password_confirmation = 'different_password'
+        @user.valid?
+        expect(@user.errors[:password_confirmation]).to include("doesn't match Password")
+      end
+    end
   end
 end
