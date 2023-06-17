@@ -93,7 +93,7 @@ RSpec.describe User, type: :model do
         expect(@user.errors[:sei]).to include('is invalid')
       end
 
-      it '姓名が半角文字が含まれている場合は無効であること' do
+      it '名が半角文字が含まれている場合は無効であること' do
         @user.mei = 'Tarou'
         @user.valid?
         expect(@user.errors[:mei]).to include('is invalid')
