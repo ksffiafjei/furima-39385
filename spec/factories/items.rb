@@ -10,6 +10,6 @@ FactoryBot.define do
     shippingcostresponsibility_id { 2 }
     prefecture_id                 { 2 }
     deliveryday_id                { 2 }
-    price                      { 1200 }
+    price { 1200 }
   end
 end

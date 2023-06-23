@@ -12,11 +12,11 @@ RSpec.describe User, type: :model do
         expect(@user).to be_valid
       end
     end
-      
+
     context '異常系' do
       it 'メールアドレスが空白であること' do
         @user.email = nil
-        @user.valid? 
+        @user.valid?
         expect(@user.errors[:email]).to include("can't be blank")
       end
 
@@ -67,7 +67,7 @@ RSpec.describe User, type: :model do
         @user.valid?
         expect(@user.errors[:password]).to include('is invalid')
       end
-  
+
       it '全角では無効であること' do
         @user.password = 'パスワード'
         @user.password_confirmation = 'パスワード'
@@ -86,7 +86,7 @@ RSpec.describe User, type: :model do
         @user.valid?
         expect(@user.errors[:mei]).to include("can't be blank")
       end
-  
+
       it '姓が半角文字が含まれている場合は無効であること' do
         @user.sei = 'Suzuki'
         @user.valid?
@@ -104,13 +104,13 @@ RSpec.describe User, type: :model do
         @user.valid?
         expect(@user.errors[:sei_hurigana]).to include("can't be blank")
       end
-  
+
       it '名（ふりがな）が空では無効であること' do
         @user.mei_hurigana = ''
         @user.valid?
         expect(@user.errors[:mei_hurigana]).to include("can't be blank")
       end
-  
+
       it '姓（ふりがな）がカタカナ以外の文字が含まれている場合は無効であること' do
         @user.sei_hurigana = 'すずき'
         @user.valid?
