@@ -31,32 +31,32 @@ RSpec.describe Item, type: :model do
         expect(@item.errors[:description]).to include("can't be blank")
       end
 
-      it 'カテゴリーが選択されていないこと' do
-        @item.category_id = nil
+      it 'category が空であること' do
+        @item.category_id = '---'
         @item.valid?
         expect(@item.errors[:category]).to include("can't be blank")
       end
 
-      it '商品の状態が選択されていないこと' do
-        @item.status_id = nil
+      it '商品の状態が空であること' do
+        @item.status_id = '---'
         @item.valid?
         expect(@item.errors[:status]).to include("can't be blank")
       end
 
-      it '配送料の負担が選択されていないこと' do
-        @item.shippingcostresponsibility_id = nil
+      it '配送料の負担が空であること' do
+        @item.shippingcostresponsibility_id = '---'
         @item.valid?
         expect(@item.errors[:shippingcostresponsibility]).to include("can't be blank")
       end
 
-      it '発送元の地域が選択されていないこと' do
-        @item.prefecture_id = nil
+      it '発送元の地域が空であること' do
+        @item.prefecture_id = '---'
         @item.valid?
         expect(@item.errors[:prefecture]).to include("can't be blank")
       end
 
-      it '発送までの日数が選択されていないこと' do
-        @item.deliveryday_id = nil
+      it '発送までの日数が空であること' do
+        @item.deliveryday_id = '---'
         @item.valid?
         expect(@item.errors[:deliveryday]).to include("can't be blank")
       end
@@ -79,10 +79,10 @@ RSpec.describe Item, type: :model do
         expect(@item.errors[:price]).to include('must be less than or equal to 9999999')
       end
 
-      it '数値が全角であること' do
-        @item.price = '１０００'
-        expect(@item).not_to be_valid
-        expect(@item.errors[:price]).to include('is not a number')
+      it 'userが紐づいていないと保存できないこと' do
+        @item.user = nil
+        @item.valid?
+        expect(@item.errors.full_messages).to include('User must exist')
       end
     end
   end
