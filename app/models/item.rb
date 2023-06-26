@@ -19,5 +19,15 @@ class Item < ApplicationRecord
   validates :price, presence: true,
                     numericality: { greater_than_or_equal_to: 300, less_than_or_equal_to: 9_999_999 }
   validates :price, numericality: { only_integer: true }
-  # validates :user_id, presence: true
+  validate :validate_ids
+
+private
+
+def validate_ids
+  errors.add(:category, "can't be blank") if category.present? && category.id <= 1
+  errors.add(:status, "can't be blank") if status.present? && status.id <= 1
+  errors.add(:shippingcostresponsibility, "can't be blank") if shippingcostresponsibility.present? && shippingcostresponsibility.id <= 1
+  errors.add(:prefecture, "can't be blank") if prefecture.present? && prefecture.id <= 1
+  errors.add(:deliveryday, "can't be blank") if deliveryday.present? && deliveryday.id <= 1
+end
 end

@@ -31,32 +31,32 @@ RSpec.describe Item, type: :model do
         expect(@item.errors[:description]).to include("can't be blank")
       end
 
-      it 'category が空であること' do
-        @item.category_id = '---'
+      it 'カテゴリーが1であること' do
+        @item.category_id = 1
         @item.valid?
         expect(@item.errors[:category]).to include("can't be blank")
       end
 
-      it '商品の状態が空であること' do
-        @item.status_id = '---'
+      it '商品の状態が1であること' do
+        @item.status_id = 1
         @item.valid?
         expect(@item.errors[:status]).to include("can't be blank")
       end
 
-      it '配送料の負担が空であること' do
-        @item.shippingcostresponsibility_id = '---'
+      it '配送料の負担が1であること' do
+        @item.shippingcostresponsibility_id = 1
         @item.valid?
         expect(@item.errors[:shippingcostresponsibility]).to include("can't be blank")
       end
 
-      it '発送元の地域が空であること' do
-        @item.prefecture_id = '---'
+      it '発送元の地域が1であること' do
+        @item.prefecture_id = 1
         @item.valid?
         expect(@item.errors[:prefecture]).to include("can't be blank")
       end
 
-      it '発送までの日数が空であること' do
-        @item.deliveryday_id = '---'
+      it '発送までの日数が1であること' do
+        @item.deliveryday_id = 1
         @item.valid?
         expect(@item.errors[:deliveryday]).to include("can't be blank")
       end
@@ -84,6 +84,12 @@ RSpec.describe Item, type: :model do
         @item.valid?
         expect(@item.errors.full_messages).to include('User must exist')
       end
+
+      it '全角だと保存できないこと' do
+      @item.price = '１０００'
+      expect(@item).not_to be_valid
+      expect(@item.errors[:price]).to include('is not a number')
+    end
     end
   end
 end
