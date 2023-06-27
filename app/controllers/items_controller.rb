@@ -3,7 +3,7 @@ class ItemsController < ApplicationController
   before_action :set_item, only: [:show]
 
   def index
-     @items = Item.all.order(created_at: :desc)
+    @items = Item.all.order(created_at: :desc)
   end
 
   def new
@@ -23,7 +23,7 @@ class ItemsController < ApplicationController
   def show
     @user = @item.user
   end
-  
+
   private
 
   def item_params

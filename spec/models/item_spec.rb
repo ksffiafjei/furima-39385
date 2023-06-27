@@ -86,10 +86,10 @@ RSpec.describe Item, type: :model do
       end
 
       it '全角だと保存できないこと' do
-      @item.price = '１０００'
-      expect(@item).not_to be_valid
-      expect(@item.errors[:price]).to include('is not a number')
-    end
+        @item.price = '１０００'
+        expect(@item).not_to be_valid
+        expect(@item.errors[:price]).to include('is not a number')
+      end
     end
   end
 end
