@@ -21,13 +21,16 @@ class Item < ApplicationRecord
   validates :price, numericality: { only_integer: true }
   validate :validate_ids
 
-private
+  private
 
-def validate_ids
-  errors.add(:category, "can't be blank") if category.present? && category.id <= 1
-  errors.add(:status, "can't be blank") if status.present? && status.id <= 1
-  errors.add(:shippingcostresponsibility, "can't be blank") if shippingcostresponsibility.present? && shippingcostresponsibility.id <= 1
-  errors.add(:prefecture, "can't be blank") if prefecture.present? && prefecture.id <= 1
-  errors.add(:deliveryday, "can't be blank") if deliveryday.present? && deliveryday.id <= 1
-end
+  def validate_ids
+    errors.add(:category, "can't be blank") if category.present? && category.id <= 1
+    errors.add(:status, "can't be blank") if status.present? && status.id <= 1
+    if shippingcostresponsibility.present? && shippingcostresponsibility.id <= 1
+      errors.add(:shippingcostresponsibility,
+                 "can't be blank")
+    end
+    errors.add(:prefecture, "can't be blank") if prefecture.present? && prefecture.id <= 1
+    errors.add(:deliveryday, "can't be blank") if deliveryday.present? && deliveryday.id <= 1
+  end
 end
