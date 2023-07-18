@@ -1,7 +1,7 @@
 class PurchaseAddress
   include ActiveModel::Model
   attr_accessor :postalcode, :prefecture_id, :city, :token,
-                :streetaddress, :buildingname, :phonenumber, :purchase, :user_id, :item_id
+                :streetaddress, :buildingname, :phonenumber, :user_id, :item_id
 
   with_options presence: true do
     validates :postalcode, format: { with: /\A\d{3}-\d{4}\z/, message: 'is invalid. Should be in the format XXX-XXXX' }

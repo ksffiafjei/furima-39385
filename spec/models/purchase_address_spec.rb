@@ -20,9 +20,9 @@ RSpec.describe PurchaseAddress, type: :model do
     end
 
     context '異常系' do
-      it '郵便番号が空白であること' do
+      it '郵便番号が空白では保存できない' do
         @purchase_address.postalcode = nil
-        expect(@purchase_address).to be_invalid
+        @purchase_address.valid?
         expect(@purchase_address.errors[:postalcode]).to include("can't be blank")
       end
 
@@ -38,13 +38,13 @@ RSpec.describe PurchaseAddress, type: :model do
         expect(@purchase_address.errors[:prefecture_id]).to include('cannot be selected')
       end
 
-      it '市区町村が空白であること' do
+      it '市区町村が空白では保存できない' do
         @purchase_address.city = nil
         @purchase_address.valid?
         expect(@purchase_address.errors.full_messages).to include("City can't be blank")
       end
 
-      it '番地が空白であること' do
+      it '番地が空白では保存できない' do
         @purchase_address.streetaddress = nil
         @purchase_address.valid?
         expect(@purchase_address.errors.full_messages).to include("Streetaddress can't be blank")
@@ -74,7 +74,7 @@ RSpec.describe PurchaseAddress, type: :model do
         expect(@purchase_address.errors[:phonenumber]).to include('is invalid. Enter a valid phone number.')
       end
 
-      it '電話番号が空白であること' do
+      it '電話番号が空白では保存できない' do
         @purchase_address.phonenumber = ''
         @purchase_address.valid?
         expect(@purchase_address.errors[:phonenumber]).to include("can't be blank")
