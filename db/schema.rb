@@ -34,13 +34,13 @@ ActiveRecord::Schema.define(version: 2023_07_04_054220) do
   end
 
   create_table "addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.bigint "purchase_id"
-    t.string "postalcode"
-    t.integer "prefecture_id"
-    t.string "city"
-    t.string "streetaddress"
+    t.bigint "purchase_id", null: false
+    t.string "postalcode", null: false
+    t.integer "prefecture_id", null: false
+    t.string "city", null: false
+    t.string "streetaddress", null: false
     t.string "buildingname"
-    t.string "phonenumber"
+    t.string "phonenumber", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["purchase_id"], name: "index_addresses_on_purchase_id"

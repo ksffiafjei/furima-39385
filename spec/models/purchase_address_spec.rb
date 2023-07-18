@@ -35,7 +35,7 @@ RSpec.describe PurchaseAddress, type: :model do
       it '都道府県が１にされている場合は購入できないこと' do
         @purchase_address.prefecture_id = 1
         @purchase_address.valid?
-        expect(@purchase_address).to be_invalid
+        expect(@purchase_address.errors[:prefecture_id]).to include('cannot be selected')
       end
 
       it '市区町村が空白であること' do
@@ -51,14 +51,30 @@ RSpec.describe PurchaseAddress, type: :model do
       end
 
       it '電話番号は10桁以上11桁以内の半角数値のみ保存可能であり、ハイフンが含まれている場合は保存できないこと' do
-        @purchase_address.user_id = @user.id
         @purchase_address.phonenumber = '090-1234-5678'
         @purchase_address.valid?
         expect(@purchase_address.errors[:phonenumber]).to include('is invalid. Enter a valid phone number.')
       end
 
+      it '電話番号は9桁以下で保存できないこと' do
+        @purchase_address.phonenumber = '090444'
+        @purchase_address.valid?
+        expect(@purchase_address.errors[:phonenumber]).to include('is invalid. Enter a valid phone number.')
+      end
+
+      it '電話番号は12桁以上で保存できないこと' do
+        @purchase_address.phonenumber = '0901234567855'
+        @purchase_address.valid?
+        expect(@purchase_address.errors[:phonenumber]).to include('is invalid. Enter a valid phone number.')
+      end
+
+      it '電話番号は,数字以外で保存できないこと' do
+        @purchase_address.phonenumber = 'yyyyyyy'
+        @purchase_address.valid?
+        expect(@purchase_address.errors[:phonenumber]).to include('is invalid. Enter a valid phone number.')
+      end
+
       it '電話番号が空白であること' do
-        @purchase_address.user_id = @user.id
         @purchase_address.phonenumber = ''
         @purchase_address.valid?
         expect(@purchase_address.errors[:phonenumber]).to include("can't be blank")

@@ -8,7 +8,6 @@ class PurchaseAddress
     validates :prefecture_id
     validates :city
     validates :streetaddress
-    validates :buildingname, allow_blank: true
     validates :phonenumber, format: { with: /\A[0-9]{10,11}\z/, message: 'is invalid. Enter a valid phone number.' }
     validates :user_id
     validates :item_id
@@ -18,8 +17,6 @@ class PurchaseAddress
   validates :prefecture_id, exclusion: { in: [1], message: 'cannot be selected' }
 
   def save
-    self.user_id = user_id
-    self.item_id = item_id
     purchase = Purchase.create(user_id: user_id, item_id: item_id)
     Address.create(postalcode: postalcode, prefecture_id: prefecture_id, city: city, streetaddress: streetaddress,
                    buildingname: buildingname, phonenumber: phonenumber, purchase_id: purchase.id)
