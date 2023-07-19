@@ -35,7 +35,7 @@ RSpec.describe PurchaseAddress, type: :model do
       it '都道府県が１にされている場合は購入できないこと' do
         @purchase_address.prefecture_id = 1
         @purchase_address.valid?
-        expect(@purchase_address.errors[:prefecture_id]).to include('cannot be selected')
+        expect(@purchase_address.errors[:prefecture_id]).to include("can't be blank")
       end
 
       it '市区町村が空白では保存できない' do

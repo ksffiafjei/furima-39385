@@ -18,8 +18,7 @@ class Item < ApplicationRecord
   validates :prefecture, presence: true
   validates :deliveryday, presence: true
   validates :price, presence: true,
-                    numericality: { greater_than_or_equal_to: 300, less_than_or_equal_to: 9_999_999 }
-  validates :price, numericality: { only_integer: true }
+                    numericality: { greater_than_or_equal_to: 300, less_than_or_equal_to: 9_999_999, only_integer: true }
   validate :validate_ids
 
   private
